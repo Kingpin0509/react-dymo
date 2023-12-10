@@ -23,7 +23,9 @@ export default function App() {
   const statusDymoService = useDymoCheckService();
   const {statusFetchPrinters, printers} = useDymoFetchPrinters(statusDymoService);
 
-  const [name, setName] = useState("Antonio Peña Batista");
+  const [name, setName] = useState("KetoXplode");
+  const [kunde, setKunde] = useState("Best Media");
+
   const [selectedPrinter, setSelectedPrinter] = useState(null);
 
   const xmlMemo = useMemo(() => generateXmlExample(name), [name]);
@@ -46,6 +48,7 @@ export default function App() {
           <h3 style={{color: "green"}}>DYMO service is running in your PC.</h3>
           <input value={name} title="Name" onChange={(e) => setName(e.target.value)} />
           <br />
+          <input value={kunde} title="Kunde" onChange={(e) => setKunde(e.target.value)} />
           <br />
           <br />
           <br />

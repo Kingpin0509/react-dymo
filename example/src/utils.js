@@ -1,4 +1,4 @@
-export function generateXmlExample(dymoName = "Your name") {
+export function generateXmlExample(dymoName = "Your name", dymoKunde="Kundenname") {
   var labelXml = `<?xml version="1.0" encoding="utf-8"?>
   <DieCutLabel Version="8.0" Units="twips">
     <PaperOrientation>Landscape</PaperOrientation>
@@ -25,13 +25,20 @@ export function generateXmlExample(dymoName = "Your name") {
         <UseFullFontHeight>True</UseFullFontHeight>
         <Verticalized>False</Verticalized>
         <StyledText>
-          <Element>
+					<String xml:space="preserve">${dymoKunde} - Kapseln - Dosen</String>
+					<Attributes>
+						<Font Family="Segoe UI" Size="12" Bold="True" Italic="False" Underline="False" Strikeout="False" />
+						<ForeColor Alpha="255" Red="0" Green="0" Blue="0" HueScale="100" />
+					</Attributes>
+				</Element>
+        <Element>
             <String xml:space="preserve">${dymoName}</String>
             <Attributes>
               <Font Family="Arial" Size="12" Bold="False" Italic="False" Underline="False" Strikeout="False" />
               <ForeColor Alpha="255" Red="0" Green="0" Blue="0" HueScale="100" />
             </Attributes>
           </Element>
+          <Element>
         </StyledText>
       </TextObject>
       <Bounds X="130" Y="300" Width="2846" Height="720" />
