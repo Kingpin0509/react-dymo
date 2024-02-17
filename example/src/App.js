@@ -28,7 +28,7 @@ export default function App() {
 
   const [selectedPrinter, setSelectedPrinter] = useState(null);
 
-  const xmlMemo = useMemo(() => generateXmlExample(name), [name]);
+  const xmlMemo = useMemo(() => generateXmlExample(name, kunde), [name, kunde]);
 
   async function handlePrintSingleLabel(printerName, labelXml) {
     try {
