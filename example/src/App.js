@@ -23,8 +23,8 @@ export default function App() {
   const statusDymoService = useDymoCheckService();
   const {statusFetchPrinters, printers} = useDymoFetchPrinters(statusDymoService);
 
-  const [name, setName] = useState("KetoXplode");
-  const [kunde, setKunde] = useState("Best Media");
+  const [name, setName] = useState("Bio Goldene Milch");
+  const [kunde, setKunde] = useState("Blanks GmbH");
 
   const [selectedPrinter, setSelectedPrinter] = useState(null);
 
