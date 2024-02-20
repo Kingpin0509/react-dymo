@@ -1,4 +1,4 @@
-export function generateXmlExample(dymoName = "Bio Goldene Milch", dymoKunde="Blanks GmbH") {
+export function generateXmlExample(dymoName = "", dymoKunde="", dymoAFK="") {
   var labelXml = `<?xml version="1.0" encoding="utf-8"?>
   <DieCutLabel Version="8.0" Units="twips">
     <PaperOrientation>Landscape</PaperOrientation>
@@ -26,7 +26,7 @@ export function generateXmlExample(dymoName = "Bio Goldene Milch", dymoKunde="Bl
         <Verticalized>False</Verticalized>
         <StyledText>
           <Element>
-            <String xml:space="preserve">Bio Goldene Milch${dymoName} - Kapseln - Dosen
+            <String xml:space="preserve">${dymoName} - Kapseln - Dosen
   </String>
             <Attributes>
               <Font Family="Segoe UI" Size="12" Bold="True" Italic="False" Underline="False" Strikeout="False" />
@@ -41,7 +41,7 @@ export function generateXmlExample(dymoName = "Bio Goldene Milch", dymoKunde="Bl
             </Attributes>
           </Element>
           <Element>
-            <String xml:space="preserve">Blanks GmbH${dymoKunde}
+            <String xml:space="preserve">${dymoKunde}
   </String>
             <Attributes>
               <Font Family="Segoe UI" Size="10" Bold="True" Italic="False" Underline="False" Strikeout="False" />
@@ -56,7 +56,7 @@ export function generateXmlExample(dymoName = "Bio Goldene Milch", dymoKunde="Bl
             </Attributes>
           </Element>
           <Element>
-            <String xml:space="preserve">AFK-553</String>
+            <String xml:space="preserve">AFK-${dymoAFK}</String>
             <Attributes>
               <Font Family="Segoe UI" Size="12" Bold="True" Italic="False" Underline="False" Strikeout="False" />
               <ForeColor Alpha="255" Red="0" Green="0" Blue="0" HueScale="100" />
@@ -229,7 +229,7 @@ export function generateXmlExample(dymoName = "Bio Goldene Milch", dymoKunde="Bl
         <Verticalized>False</Verticalized>
         <Font Family="Arial" Size="24" Bold="False" Italic="False" Underline="False" Strikeout="False" />
         <PreText>Karton: </PreText>
-        <PostText> von 0</PostText>
+        <PostText></PostText>
         <Start>1</Start>
         <Current>1</Current>
         <Increment>1</Increment>

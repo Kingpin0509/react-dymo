@@ -5,7 +5,7 @@ import {generateXmlExample} from "./utils";
 
 const DymoLabelPreview = memo(({xml, statusDymoService, loadingComponent, errorComponent}) => {
   const {label, statusOpenLabel} = useDymoOpenLabel(statusDymoService, xml);
-  const style = {background: "hsla(0, 0%, 50%, 0.66)", padding: 7};
+  const style = {background: "hsla(0, 0%, 84%, 1.00)", padding: 10};
   if (statusOpenLabel === "loading") {
     return loadingComponent;
   } else if (statusOpenLabel === "error") {
@@ -23,12 +23,13 @@ export default function App() {
   const statusDymoService = useDymoCheckService();
   const {statusFetchPrinters, printers} = useDymoFetchPrinters(statusDymoService);
 
-  const [name, setName] = useState("Bio Goldene Milch");
-  const [kunde, setKunde] = useState("Blanks GmbH");
+  const [name, setName] = useState("");
+  const [kunde, setKunde] = useState("");
+  const [afk, setAFK] = useState("");
 
   const [selectedPrinter, setSelectedPrinter] = useState(null);
 
-  const xmlMemo = useMemo(() => generateXmlExample(name, kunde), [name, kunde]);
+  const xmlMemo = useMemo(() => generateXmlExample(name, kunde, afk), [name, kunde, afk]);
 
   async function handlePrintSingleLabel(printerName, labelXml) {
     try {
@@ -41,14 +42,17 @@ export default function App() {
 
   return (
     <div>
-      {statusDymoService === "loading" && <h1>Checking dymo web service...</h1>}
-      {statusDymoService === "error" && <h1>Error</h1>}
+      {statusDymoService === "loading" && <h1>Lokaler DYMO Web Service wird geprüft...</h1>}
+      {statusDymoService === "error" && <h1>Fehler</h1>}
       {statusDymoService === "success" && (
         <React.Fragment>
-          <h3 style={{color: "green"}}>DYMO service is running in your PC.</h3>
+          <h3 style={{color: "green"}}>DYMO Web Service ist Funktionsbereit.</h3>
+          <br />
           <input value={name} title="Name" onChange={(e) => setName(e.target.value)} />
           <br />
           <input value={kunde} title="Kunde" onChange={(e) => setKunde(e.target.value)} />
+          <br />
+          <input value={afk} title="AFK" onChange={(e) => setAFK(e.target.value)} />
           <br />
           <br />
           <br />
@@ -57,17 +61,18 @@ export default function App() {
       <DymoLabelPreview
         xml={xmlMemo}
         statusDymoService={statusDymoService}
-        loadingComponent={<h4>Loading Preview...</h4>}
-        errorComponent={<h4>Error..</h4>}
+        loadingComponent={<h4>Vorschau wird geladen...</h4>}
+        errorComponent={<h4>Fehler..</h4>}
       />
-      {statusFetchPrinters === "loading" && <h4>Loading printers..</h4>}
+      {statusFetchPrinters === "loading" && <h4>DYMO Drucker werden gesucht..</h4>}
+      <br />
       <br />
       {statusFetchPrinters === "success" && (
         <React.Fragment>
-          <label htmlFor="printer-select">Choose a Dymo printer:</label>
+          <label htmlFor="printer-select">DYMO Drucker auswählen:</label>
           <br />
           <select name="printers" id="printer-select" onChange={(e) => setSelectedPrinter(e.target.value)}>
-            <option value="">--Please choose an option--</option>
+            <option value="">--Auswählen--</option>
             {printers.map((printer) => (
               <option key={printer.name} value={printer.name}>
                 {printer.name}
@@ -77,8 +82,9 @@ export default function App() {
         </React.Fragment>
       )}
       <br />
+      <br />
       <button disabled={!selectedPrinter} onClick={() => handlePrintSingleLabel(selectedPrinter, xmlMemo)}>
-        Print single label
+        Drucken
       </button>
     </div>
   );
