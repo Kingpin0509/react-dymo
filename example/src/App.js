@@ -30,12 +30,12 @@ export default function App() {
   const [menge, setMenge] = useState("");
   const [kundencharge, setKundencharge] = useState("");
   const [mhd, setMHD] = useState("");
-  const [kartonnr, setKartonNr] = useState("");
-  const [kartonsgesamt, setKartonsGesamt] = useState("");
+  const [kartonnr, setKartonNr] = useState("1");
+  // const [kartonsgesamt, setKartonsGesamt] = useState("");
 
   const [selectedPrinter, setSelectedPrinter] = useState(null);
 
-  const xmlMemo = useMemo(() => generateXmlExample(name, kunde, afk, a, menge, kundencharge, mhd, kartonnr, kartonsgesamt), [name, kunde, afk, a, menge, kundencharge, mhd, kartonnr, kartonsgesamt]);
+  const xmlMemo = useMemo(() => generateXmlExample(name, kunde, afk, a, menge, kundencharge, mhd, kartonnr), [name, kunde, afk, a, menge, kundencharge, mhd, kartonnr]);
 
   async function handlePrintSingleLabel(printerName, labelXml) {
     try {
@@ -54,30 +54,23 @@ export default function App() {
         <React.Fragment>
           <h3 style={{color: "green"}}>DYMO Web Service ist Funktionsbereit.</h3>
           <br />
-          Produktname<input value={name} title="Name" onChange={(e) => setName(e.target.value)} />
+          Produktname: <input value={name} title="Name" onChange={(e) => setName(e.target.value)} />
           <br />
-          Kunde<input value={kunde} title="Kunde" onChange={(e) => setKunde(e.target.value)} />
+          Kunde: <input value={kunde} title="Kunde" onChange={(e) => setKunde(e.target.value)} />
           <br />
-          AFK-<input value={afk} title="AFK" onChange={(e) => setAFK(e.target.value)} />
+          AFK- <input value={afk} title="AFK" onChange={(e) => setAFK(e.target.value)} />
           <br />
+          -A <input value={a} title="A" onChange={(e) => setA(e.target.value)} />
           <br />
-          -A<input value={a} title="A" onChange={(e) => setA(e.target.value)} />
+          Menge: <input value={menge} title="Menge" onChange={(e) => setMenge(e.target.value)} />
           <br />
+          Kundencharge: <input value={kundencharge} title="Kundencharge" onChange={(e) => setKundencharge(e.target.value)} />
           <br />
-          Menge<input value={menge} title="Menge" onChange={(e) => setMenge(e.target.value)} />
+          MHD: <input value={mhd} title="MHD" onChange={(e) => setMHD(e.target.value)} />
           <br />
+          Karton Nr.: <input value={kartonnr} title="KartonNr" onChange={(e) => setKartonNr(e.target.value)} />
           <br />
-          Kundencharge<input value={kundencharge} title="Kundencharge" onChange={(e) => setKundencharge(e.target.value)} />
-          <br />
-          <br />
-          MHD<input value={mhd} title="MHD" onChange={(e) => setMHD(e.target.value)} />
-          <br />
-          <br />
-          Karton Nr<input value={kartonnr} title="KartonNr" onChange={(e) => setKartonNr(e.target.value)} />
-          <br />
-          <br />
-          Kartons Gesamt<input value={kartonsgesamt} title="KartonsGesamt" onChange={(e) => setKartonsGesamt(e.target.value)} />
-          <br />
+          {/* Kartons Gesamt<input value={kartonsgesamt} title="KartonsGesamt" onChange={(e) => setKartonsGesamt(e.target.value)} /> */}
           <br />
           <br />
         </React.Fragment>

@@ -1,5 +1,4 @@
-export function generateXmlExample(
-  dymoName = "", dymoKunde="", dymoAFK="", dymoA="", dymoMenge="", dymoKundencharge="", dymoMHD="", dymoKartonNr="1", dymoKartonsGesamt="", ) {
+export function generateXmlExample(dymoName = "", dymoKunde="", dymoAFK="", dymoA="", dymoMenge="", dymoKundencharge="", dymoMHD="", dymoKartonNr="", dymoKartonsGesamt="") {
   var labelXml = `<?xml version="1.0" encoding="utf-8"?>
   <DieCutLabel Version="8.0" Units="twips">
     <PaperOrientation>Landscape</PaperOrientation>
@@ -27,8 +26,8 @@ export function generateXmlExample(
         <Verticalized>False</Verticalized>
         <StyledText>
           <Element>
-            <String xml:space="preserve">${dymoName} - Kapseln - Dosen
-  </String>
+            <String xml:space="preserve">${dymoName} - Kapsel - Dosen
+</String>
             <Attributes>
               <Font Family="Segoe UI" Size="12" Bold="True" Italic="False" Underline="False" Strikeout="False" />
               <ForeColor Alpha="255" Red="0" Green="0" Blue="0" HueScale="100" />
@@ -43,9 +42,9 @@ export function generateXmlExample(
           </Element>
           <Element>
             <String xml:space="preserve">${dymoKunde}
-  </String>
+</String>
             <Attributes>
-              <Font Family="Segoe UI" Size="10" Bold="True" Italic="False" Underline="False" Strikeout="False" />
+              <Font Family="Segoe UI" Size="11" Bold="True" Italic="False" Underline="False" Strikeout="False" />
               <ForeColor Alpha="255" Red="0" Green="0" Blue="0" HueScale="100" />
             </Attributes>
           </Element>
@@ -59,22 +58,22 @@ export function generateXmlExample(
           <Element>
             <String xml:space="preserve">AFK-${dymoAFK}</String>
             <Attributes>
-              <Font Family="Segoe UI" Size="12" Bold="True" Italic="False" Underline="False" Strikeout="False" />
+              <Font Family="Segoe UI" Size="11" Bold="True" Italic="False" Underline="False" Strikeout="False" />
               <ForeColor Alpha="255" Red="0" Green="0" Blue="0" HueScale="100" />
             </Attributes>
           </Element>
           <Element>
             <String xml:space="preserve"> aus </String>
             <Attributes>
-              <Font Family="Segoe UI" Size="12" Bold="False" Italic="False" Underline="False" Strikeout="False" />
+              <Font Family="Segoe UI" Size="10" Bold="False" Italic="False" Underline="False" Strikeout="False" />
               <ForeColor Alpha="255" Red="0" Green="0" Blue="0" HueScale="100" />
             </Attributes>
           </Element>
           <Element>
             <String xml:space="preserve">${dymoA}-A
-  </String>
+</String>
             <Attributes>
-              <Font Family="Segoe UI" Size="12" Bold="True" Italic="False" Underline="False" Strikeout="False" />
+              <Font Family="Segoe UI" Size="11" Bold="True" Italic="False" Underline="False" Strikeout="False" />
               <ForeColor Alpha="255" Red="0" Green="0" Blue="0" HueScale="100" />
             </Attributes>
           </Element>
@@ -88,15 +87,15 @@ export function generateXmlExample(
           <Element>
             <String xml:space="preserve">${dymoMenge}</String>
             <Attributes>
-              <Font Family="Segoe UI" Size="12" Bold="True" Italic="False" Underline="False" Strikeout="False" />
+              <Font Family="Segoe UI" Size="11" Bold="True" Italic="False" Underline="False" Strikeout="False" />
               <ForeColor Alpha="255" Red="0" Green="0" Blue="0" HueScale="100" />
             </Attributes>
           </Element>
           <Element>
             <String xml:space="preserve">Dosen
-  </String>
+</String>
             <Attributes>
-              <Font Family="Segoe UI" Size="12" Bold="True" Italic="False" Underline="False" Strikeout="False" />
+              <Font Family="Segoe UI" Size="11" Bold="True" Italic="False" Underline="False" Strikeout="False" />
               <ForeColor Alpha="255" Red="0" Green="0" Blue="0" HueScale="100" />
             </Attributes>
           </Element>
@@ -109,48 +108,49 @@ export function generateXmlExample(
           </Element>
           <Element>
             <String xml:space="preserve">${dymoKundencharge}
-  </String>
+</String>
             <Attributes>
-              <Font Family="Segoe UI" Size="10" Bold="True" Italic="False" Underline="False" Strikeout="False" />
+              <Font Family="Segoe UI" Size="11" Bold="True" Italic="False" Underline="False" Strikeout="False" />
               <ForeColor Alpha="255" Red="0" Green="0" Blue="0" HueScale="100" />
             </Attributes>
           </Element>
           <Element>
-            <String xml:space="preserve">MHD:</String>
+            <String xml:space="preserve">MHD: </String>
             <Attributes>
               <Font Family="Segoe UI" Size="10" Bold="False" Italic="False" Underline="False" Strikeout="False" />
               <ForeColor Alpha="255" Red="0" Green="0" Blue="0" HueScale="100" />
             </Attributes>
           </Element>
           <Element>
-            <String xml:space="preserve">${dymoMHD}</String>
+            <String xml:space="preserve">${dymoMHD}
+</String>
             <Attributes>
-              <Font Family="Segoe UI" Size="12" Bold="True" Italic="False" Underline="False" Strikeout="False" />
+              <Font Family="Segoe UI" Size="11" Bold="True" Italic="False" Underline="False" Strikeout="False" />
               <ForeColor Alpha="255" Red="0" Green="0" Blue="0" HueScale="100" />
             </Attributes>
           </Element>
           <Element>
             <String xml:space="preserve">DE-ÖKO-003</String>
             <Attributes>
-              <Font Family="Segoe UI" Size="8" Bold="True" Italic="False" Underline="False" Strikeout="False" />
+              <Font Family="Segoe UI" Size="7" Bold="True" Italic="False" Underline="False" Strikeout="False" />
               <ForeColor Alpha="255" Red="0" Green="0" Blue="0" HueScale="100" />
             </Attributes>
           </Element>
           <Element>
             <String xml:space="preserve">
-              Nietiet GmbH
-              DEA-Str. 4 
-              29323 Wietze
-              Deutschland
-            </String>
+Nietiet GmbH
+DEA-Str. 4 
+29323 Wietze
+Deutschland
+</String>
             <Attributes>
-              <Font Family="Segoe UI" Size="7" Bold="False" Italic="False" Underline="False" Strikeout="False" />
+              <Font Family="Segoe UI" Size="6" Bold="False" Italic="False" Underline="False" Strikeout="False" />
               <ForeColor Alpha="255" Red="0" Green="0" Blue="0" HueScale="100" />
             </Attributes>
           </Element>
         </StyledText>
       </TextObject>
-      <Bounds X="307" Y="58" Width="5003" Height="2918" />
+      <Bounds X="290" Y="70" Width="5003" Height="2918" />
     </ObjectInfo>
     <ObjectInfo>
       <ShapeObject Stroke="SolidLine">
@@ -168,7 +168,7 @@ export function generateXmlExample(
         <LineAlignment>Center</LineAlignment>
         <FillColor Alpha="0" Red="255" Green="255" Blue="255" />
       </ShapeObject>
-      <Bounds X="3050" Y="2751" Width="2550" Height="15" />
+      <Bounds X="2900" Y="2650" Width="2550" Height="15" />
     </ObjectInfo>
     <ObjectInfo>
       <TextObject>
@@ -190,13 +190,13 @@ export function generateXmlExample(
           <Element>
             <String xml:space="preserve">Mitarbeiter</String>
             <Attributes>
-              <Font Family="Arial" Size="10" Bold="False" Italic="False" Underline="False" Strikeout="False" />
+              <Font Family="Arial" Size="8" Bold="False" Italic="False" Underline="False" Strikeout="False" />
               <ForeColor Alpha="255" Red="0" Green="0" Blue="0" HueScale="100" />
             </Attributes>
           </Element>
         </StyledText>
       </TextObject>
-      <Bounds X="4010" Y="2781" Width="1290" Height="195" />
+      <Bounds X="3900" Y="2700" Width="1000" Height="200" />
     </ObjectInfo>
     <ObjectInfo>
       <CounterObject>
@@ -216,14 +216,14 @@ export function generateXmlExample(
         <Verticalized>False</Verticalized>
         <Font Family="Arial" Size="18" Bold="False" Italic="False" Underline="False" Strikeout="False" />
         <PreText>Karton: </PreText>
-        <PostText>${dymoKartonsGesamt}</PostText>
+        <PostText></PostText>
         <Start>1</Start>
         <Current>${dymoKartonNr}</Current>
         <Increment>1</Increment>
         <FormatWidth>3</FormatWidth>
         <UseLeadingZeros>True</UseLeadingZeros>
       </CounterObject>
-      <Bounds X="3245" Y="1890" Width="2130" Height="525" />
+      <Bounds X="3150" Y="1750" Width="2000" Height="525" />
     </ObjectInfo>
   </DieCutLabel>`;
   return labelXml;
