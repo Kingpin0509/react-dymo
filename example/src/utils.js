@@ -1,4 +1,5 @@
-export function generateXmlExample(dymoName = "", dymoKunde="", dymoAFK="") {
+export function generateXmlExample(
+  dymoName = "", dymoKunde="", dymoAFK="", dymoA="", dymoMenge="", dymoKundencharge="", dymoMHD="", dymoKartonNr="1", dymoKartonsGesamt="", ) {
   var labelXml = `<?xml version="1.0" encoding="utf-8"?>
   <DieCutLabel Version="8.0" Units="twips">
     <PaperOrientation>Landscape</PaperOrientation>
@@ -70,7 +71,7 @@ export function generateXmlExample(dymoName = "", dymoKunde="", dymoAFK="") {
             </Attributes>
           </Element>
           <Element>
-            <String xml:space="preserve">904-A
+            <String xml:space="preserve">${dymoA}-A
   </String>
             <Attributes>
               <Font Family="Segoe UI" Size="12" Bold="True" Italic="False" Underline="False" Strikeout="False" />
@@ -85,9 +86,9 @@ export function generateXmlExample(dymoName = "", dymoKunde="", dymoAFK="") {
             </Attributes>
           </Element>
           <Element>
-            <String xml:space="preserve"></String>
+            <String xml:space="preserve">${dymoMenge}</String>
             <Attributes>
-              <Font Family="Segoe UI" Size="10" Bold="True" Italic="False" Underline="False" Strikeout="False" />
+              <Font Family="Segoe UI" Size="12" Bold="True" Italic="False" Underline="False" Strikeout="False" />
               <ForeColor Alpha="255" Red="0" Green="0" Blue="0" HueScale="100" />
             </Attributes>
           </Element>
@@ -107,7 +108,7 @@ export function generateXmlExample(dymoName = "", dymoKunde="", dymoAFK="") {
             </Attributes>
           </Element>
           <Element>
-            <String xml:space="preserve">TUP-904
+            <String xml:space="preserve">${dymoKundencharge}
   </String>
             <Attributes>
               <Font Family="Segoe UI" Size="10" Bold="True" Italic="False" Underline="False" Strikeout="False" />
@@ -115,49 +116,35 @@ export function generateXmlExample(dymoName = "", dymoKunde="", dymoAFK="") {
             </Attributes>
           </Element>
           <Element>
-            <String xml:space="preserve">MHD</String>
+            <String xml:space="preserve">MHD:</String>
             <Attributes>
               <Font Family="Segoe UI" Size="10" Bold="False" Italic="False" Underline="False" Strikeout="False" />
               <ForeColor Alpha="255" Red="0" Green="0" Blue="0" HueScale="100" />
             </Attributes>
           </Element>
           <Element>
-            <String xml:space="preserve">: </String>
-            <Attributes>
-              <Font Family="Segoe UI" Size="12" Bold="False" Italic="False" Underline="False" Strikeout="False" />
-              <ForeColor Alpha="255" Red="0" Green="0" Blue="0" HueScale="100" />
-            </Attributes>
-          </Element>
-          <Element>
-            <String xml:space="preserve">05/2025
-  </String>
+            <String xml:space="preserve">${dymoMHD}</String>
             <Attributes>
               <Font Family="Segoe UI" Size="12" Bold="True" Italic="False" Underline="False" Strikeout="False" />
               <ForeColor Alpha="255" Red="0" Green="0" Blue="0" HueScale="100" />
             </Attributes>
           </Element>
           <Element>
-            <String xml:space="preserve">DE-ÖKO-003
-  </String>
+            <String xml:space="preserve">DE-ÖKO-003</String>
             <Attributes>
               <Font Family="Segoe UI" Size="8" Bold="True" Italic="False" Underline="False" Strikeout="False" />
               <ForeColor Alpha="255" Red="0" Green="0" Blue="0" HueScale="100" />
             </Attributes>
           </Element>
           <Element>
-            <String xml:space="preserve">Nietiet GmbH
-  DEA-Str. 4 
-  29323 Wietze
-  </String>
+            <String xml:space="preserve">
+              Nietiet GmbH
+              DEA-Str. 4 
+              29323 Wietze
+              Deutschland
+            </String>
             <Attributes>
               <Font Family="Segoe UI" Size="7" Bold="False" Italic="False" Underline="False" Strikeout="False" />
-              <ForeColor Alpha="255" Red="0" Green="0" Blue="0" HueScale="100" />
-            </Attributes>
-          </Element>
-          <Element>
-            <String xml:space="preserve">Deutschland</String>
-            <Attributes>
-              <Font Family="Segoe UI" Size="8" Bold="False" Italic="False" Underline="False" Strikeout="False" />
               <ForeColor Alpha="255" Red="0" Green="0" Blue="0" HueScale="100" />
             </Attributes>
           </Element>
@@ -227,11 +214,11 @@ export function generateXmlExample(dymoName = "", dymoKunde="", dymoAFK="") {
         <TextFitMode>ShrinkToFit</TextFitMode>
         <UseFullFontHeight>True</UseFullFontHeight>
         <Verticalized>False</Verticalized>
-        <Font Family="Arial" Size="24" Bold="False" Italic="False" Underline="False" Strikeout="False" />
+        <Font Family="Arial" Size="18" Bold="False" Italic="False" Underline="False" Strikeout="False" />
         <PreText>Karton: </PreText>
-        <PostText></PostText>
+        <PostText>${dymoKartonsGesamt}</PostText>
         <Start>1</Start>
-        <Current>1</Current>
+        <Current>${dymoKartonNr}</Current>
         <Increment>1</Increment>
         <FormatWidth>3</FormatWidth>
         <UseLeadingZeros>True</UseLeadingZeros>

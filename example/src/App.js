@@ -26,10 +26,16 @@ export default function App() {
   const [name, setName] = useState("");
   const [kunde, setKunde] = useState("");
   const [afk, setAFK] = useState("");
+  const [a, setA] = useState("");
+  const [menge, setMenge] = useState("");
+  const [kundencharge, setKundencharge] = useState("");
+  const [mhd, setMHD] = useState("");
+  const [kartonnr, setKartonNr] = useState("");
+  const [kartonsgesamt, setKartonsGesamt] = useState("");
 
   const [selectedPrinter, setSelectedPrinter] = useState(null);
 
-  const xmlMemo = useMemo(() => generateXmlExample(name, kunde, afk), [name, kunde, afk]);
+  const xmlMemo = useMemo(() => generateXmlExample(name, kunde, afk, a, menge, kundencharge, mhd, kartonnr, kartonsgesamt), [name, kunde, afk, a, menge, kundencharge, mhd, kartonnr, kartonsgesamt]);
 
   async function handlePrintSingleLabel(printerName, labelXml) {
     try {
@@ -48,11 +54,29 @@ export default function App() {
         <React.Fragment>
           <h3 style={{color: "green"}}>DYMO Web Service ist Funktionsbereit.</h3>
           <br />
-          <input value={name} title="Name" onChange={(e) => setName(e.target.value)} />
+          Produktname<input value={name} title="Name" onChange={(e) => setName(e.target.value)} />
           <br />
-          <input value={kunde} title="Kunde" onChange={(e) => setKunde(e.target.value)} />
+          Kunde<input value={kunde} title="Kunde" onChange={(e) => setKunde(e.target.value)} />
           <br />
-          <input value={afk} title="AFK" onChange={(e) => setAFK(e.target.value)} />
+          AFK-<input value={afk} title="AFK" onChange={(e) => setAFK(e.target.value)} />
+          <br />
+          <br />
+          -A<input value={a} title="A" onChange={(e) => setA(e.target.value)} />
+          <br />
+          <br />
+          Menge<input value={menge} title="Menge" onChange={(e) => setMenge(e.target.value)} />
+          <br />
+          <br />
+          Kundencharge<input value={kundencharge} title="Kundencharge" onChange={(e) => setKundencharge(e.target.value)} />
+          <br />
+          <br />
+          MHD<input value={mhd} title="MHD" onChange={(e) => setMHD(e.target.value)} />
+          <br />
+          <br />
+          Karton Nr<input value={kartonnr} title="KartonNr" onChange={(e) => setKartonNr(e.target.value)} />
+          <br />
+          <br />
+          Kartons Gesamt<input value={kartonsgesamt} title="KartonsGesamt" onChange={(e) => setKartonsGesamt(e.target.value)} />
           <br />
           <br />
           <br />
